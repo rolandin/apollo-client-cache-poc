@@ -1,12 +1,13 @@
 import React from 'react'
 import { useQuery } from "@apollo/client";
 import { PAST_LAUNCHES, FUTURE_LAUNCHES } from "../apollo/queries";
-import Card from "./Card";
 import { client } from "../apollo/client";
+import Card from "./Card";
 
 const PastLaunches = () => {
   const { data, loading, error } = useQuery(PAST_LAUNCHES)
 
+  // Reading data from the cache   
   const { launchesUpcoming } = client.readQuery({
       query: FUTURE_LAUNCHES
   })

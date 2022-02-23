@@ -5,12 +5,20 @@ import Card from "./Card";
 
 
 const FutureLaunches = () => {
-  const { data, loading, error } = useQuery(FUTURE_LAUNCHES)
+  const { data, loading, error, refetch } = useQuery(FUTURE_LAUNCHES, {
+    // fetchPolicy: 'cache-and-network'
+  })
 
-  console.log({data})
+  const handleClick = () => {
+      console.log("re-fetching")
+      refetch()
+  }
+
   return (
       <div className='w-3/4 mx-auto mt-3 text-sm'>
-
+         <button className='bg-blue-400 text-white font-bold py-2 px-4 rounded-lg' onClick={handleClick}>
+            Refetch this Query
+        </button>
         {error && <h1>We got an Error</h1>}
         {loading && <Card.Skeleton /> }
         {data && (

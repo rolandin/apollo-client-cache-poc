@@ -11,6 +11,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+
+        {/*  MENU  */}
         <div className="w-3/4 mx-auto mt-12">
           <Link to="/" className='text-2xl font-bold text-gray-600 bg-gray-100 py-2 px-2 rounded-lg cursor-pointer hover:bg-gray-200 mr-2'>
               Upcoming Launches
@@ -20,6 +22,8 @@ function App() {
           </Link>
         </div>
 
+
+        {/*  ROUTES  */}
         <Switch>
           <Route exact path="/">
             <FutureLaunches />
