@@ -32,3 +32,15 @@ query FutureQuery {
     }
   }
 `
+
+export const ROCKETS = gql`
+query Rockets {
+    rockets {
+      name
+      payload_weights {
+        kg
+      }
+      description
+    }
+  }  
+`

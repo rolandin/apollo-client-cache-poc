@@ -8,11 +8,15 @@ const PastLaunches = () => {
   const { data, loading, error } = useQuery(PAST_LAUNCHES)
 
   // Reading data from the cache   
-  const { launchesUpcoming } = client.readQuery({
-      query: FUTURE_LAUNCHES
+  const cachedData = client?.readQuery({
+      query: FUTURE_LAUNCHES,
+
   })
 
-  const handleClick = () => console.log(launchesUpcoming)
+  const handleClick = () => console.log(
+      cachedData?.launchesUpcoming || 
+      "The data you are trying to Log hasn't been cached yet"
+  )
 
   return (
       <div className='w-3/4 mx-auto mt-3 text-sm'>
